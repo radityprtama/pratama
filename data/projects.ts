@@ -21,8 +21,8 @@ const project: ProjectType[] = [
       "Mass deploy Pterodactyl Wings instance.",
     createdAt: "2024-06-26",
     technology: [js],
-    url: "https://github.com/LAV1N/Hexa",
-    source: "https://github.com/LAV1N/Hexa",
+    url: "https://github.com/radityprtama/Hexa",
+    source: "https://github.com/radityprtama/Hexa",
   },
 ];
 

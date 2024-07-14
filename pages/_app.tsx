@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         url={config.baseUrl}
         sameAs={[
           "https://open.spotify.com/user/jq8jqs2zl5wrff86ko6ep9e04?si=d0b2d1bb0a1e4e78",
-          "https://github.com/LAV1N",
+          "https://github.com/radityprtama",
           //"https://svspicious.medium.com/",
           "https://instagram.com/unsqin_",
         ]}
