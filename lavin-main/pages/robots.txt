@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Allow: /about
+Allow: /project
+Allow: /blog
+Disallow: /private/
+Disallow: /sitemap.xml
+
+Sitemap: https://pratama-pi.vercel.app/sitemap.xml
