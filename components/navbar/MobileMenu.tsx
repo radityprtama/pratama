@@ -27,7 +27,7 @@ const links = [
   // },
   {
     text: "Github",
-    url: "https://github.com/LAV1N",
+    url: "https://github.com/radityprtama",
   },
   {
     text: "About",
