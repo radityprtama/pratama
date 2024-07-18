@@ -4,6 +4,5 @@ Allow: /about
 Allow: /project
 Allow: /blog
 Disallow: /private/
-Disallow: /sitemap.xml
 
 Sitemap: https://pratama-eta.vercel.app/sitemap.xml
