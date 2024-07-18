@@ -6,4 +6,4 @@ Allow: /blog
 Disallow: /private/
 Disallow: /sitemap.xml
 
-Sitemap: https://pratama-pi.vercel.app/sitemap.xml
+Sitemap: https://pratama-eta.vercel.app/sitemap.xml
