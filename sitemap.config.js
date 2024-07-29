@@ -3,5 +3,5 @@ console.log('NEXT_PUBLIC_BASE_URL:', process.env.NEXT_PUBLIC_BASE_URL);
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_BASE_URL,
   generateRobotsTxt: true,
-  sitemapSize: 1000,
+  sitemapSize: 7000,
 };

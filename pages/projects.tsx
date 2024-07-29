@@ -1,11 +1,15 @@
+// src/pages/projects.tsx
+import React from 'react';
 import Main from "@/components/layouts/Main";
 import data from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import Head from "@/components/Head";
-const projects = () => {
+
+const ProjectsPage: React.FC = () => {
   const filteredProject = data.sort(
     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt))
   );
+
   return (
     <Main>
       <Head title="Projects" description="Some collection of my past works." />
@@ -24,4 +28,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default ProjectsPage;

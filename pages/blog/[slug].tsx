@@ -20,11 +20,13 @@ const Post = ({ source, meta }: MDXPost) => {
       document.documentElement.lang = "en";
     };
   }, [meta.lang]);
+  
   const date = new Date(meta.publishedAt).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
+
   return (
     <section
       id="main-content"
@@ -102,10 +104,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getFileBySlug("blog", params?.slug);
+  const post = await getFileBySlug("blog", params?.slug as string);
   return {
     props: { ...post },
   };
 };
+
 export default Post;

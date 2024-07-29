@@ -1,8 +1,14 @@
 import Link from "./Link";
-import { MDXProviderComponents } from "@mdx-js/react";
+import { MDXProvider } from "@mdx-js/react";
 import Image, { ImageProps } from "next/image";
-//TODO: type definition for each record
-const CustomImage = ({ alt, ...props }: ImageProps) => {
+import React from "react";
+
+// Definisi tipe untuk CustomImage
+interface CustomImageProps extends Omit<ImageProps, 'alt'> {
+  alt: string;
+}
+
+const CustomImage: React.FC<CustomImageProps> = ({ alt, ...props }) => {
   return (
     <div className="w-full text-center mt-2 mb-4">
       <Image {...props} alt={alt} />
@@ -11,69 +17,76 @@ const CustomImage = ({ alt, ...props }: ImageProps) => {
   );
 };
 
-const MDXComponents: MDXProviderComponents = {
-  Img: CustomImage,
-  a: ({ href, children, ...props }) => {
-    const isExternal = !(href?.startsWith("/") || href?.startsWith("#"));
-    return (
-      <Link href={href as string} isExternal={isExternal} {...props}>
-        {children}
-      </Link>
-    );
-  },
-  h1: ({ id, children, ...props }) => {
-    return (
-      <h1 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h1>
-    );
-  },
-  h2: ({ id, children, ...props }) => {
-    return (
-      <h2 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h2>
-    );
-  },
-  h3: ({ id, children, ...props }) => {
-    return (
-      <h3 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h3>
-    );
-  },
-  h4: ({ id, children, ...props }) => {
-    return (
-      <h4 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h4>
-    );
-  },
-  h5: ({ id, children, ...props }) => {
-    return (
-      <h5 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h5>
-    );
-  },
-  h6: ({ id, children, ...props }) => {
-    return (
-      <h6 id={id} className="scroll-margin-nav">
-        <Link href={`#${id}`} {...props}>
-          {children}
-        </Link>
-      </h6>
-    );
-  },
+// Definisi tipe untuk LinkProps
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+  isExternal?: boolean;
+}
+
+const CustomLink: React.FC<LinkProps> = ({ href, children, isExternal, ...props }) => {
+  return (
+    <Link href={href} isExternal={isExternal} {...props}>
+      {children}
+    </Link>
+  );
 };
+
+// Definisi komponen heading
+const CustomHeading: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h1 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h1>
+);
+
+const Heading2: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h2 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h2>
+);
+
+const Heading3: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h3 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h3>
+);
+
+const Heading4: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h4 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h4>
+);
+
+const Heading5: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h5 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h5>
+);
+
+const Heading6: React.FC<React.HTMLProps<HTMLHeadingElement>> = ({ id, children, ...props }) => (
+  <h6 id={id} className="scroll-margin-nav" {...props}>
+    {children}
+  </h6>
+);
+
+// Definisi tipe untuk MDXComponents
+const MDXComponents: {
+  Img: React.FC<CustomImageProps>;
+  a: React.FC<LinkProps>;
+  h1: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+  h2: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+  h3: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+  h4: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+  h5: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+  h6: React.FC<React.HTMLProps<HTMLHeadingElement>>;
+} = {
+  Img: CustomImage,
+  a: CustomLink,
+  h1: CustomHeading,
+  h2: Heading2,
+  h3: Heading3,
+  h4: Heading4,
+  h5: Heading5,
+  h6: Heading6,
+};
+
 export default MDXComponents;

@@ -3,14 +3,14 @@ const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string;
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN as string;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
-const NOW_PLAYING_ENDPOINT = ``; //NOW PLAYING ENDPOINT
-const TOP_TRACKS_ENDPOINT = ``; //TOP TRACK ENDPOINT
+const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`; //NOW PLAYING ENDPOINT
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`; //TOP TRACK ENDPOINT
 const TOP_TRACKS_DEFAULT_PARAMS = {
   time_range: "short_term",
   limit: "5",
   offset: "0",
 };
-const TOKEN_ENDPOINT = ``; //BELUM ADA TOKEN ENDPOINT API SPOTIFY
+const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`; //token spotify
 
 const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {

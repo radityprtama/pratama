@@ -11,6 +11,7 @@ import { DefaultSeo, SocialProfileJsonLd } from "next-seo";
 import config from "site.config";
 import { AnimatePresence, motion } from "framer-motion";
 
+
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -36,10 +37,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <ThemeProvider attribute="class" enableSystem={false}>
       <DefaultSeo
         description={config.description}
-        defaultTitle="Hi i'm Raditya."
+        defaultTitle="Hi I'm Raditya."
         titleTemplate={`%s · pratama.dev`}
         openGraph={{
-          title: "Hi i'm Raditya.",
+          title: "Hi I'm Raditya.",
           description: config.description,
           images: [
             {
@@ -59,12 +60,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         sameAs={[
           "https://open.spotify.com/user/jq8jqs2zl5wrff86ko6ep9e04?si=d0b2d1bb0a1e4e78",
           "https://github.com/radityprtama",
-          //"https://svspicious.medium.com/",
           "https://instagram.com/unsqin_",
         ]}
       />
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+      <Navbar />
         <AnimatePresence exitBeforeEnter>
           <motion.main
             key={router.route}
@@ -86,4 +86,5 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </ThemeProvider>
   );
 }
+
 export default MyApp;

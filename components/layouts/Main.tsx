@@ -1,7 +1,11 @@
+import React, { ReactNode } from 'react';
+import cx from 'clsx';
+
 interface MainProps {
   className?: string;
+  children: ReactNode; // Add children property
 }
-import cx from "clsx";
+
 const Main: React.FC<MainProps> = ({ children, className, ...props }) => {
   return (
     <div
